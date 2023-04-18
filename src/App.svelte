@@ -28,11 +28,11 @@
     let text = a[0]+b[0]
     if(ans_list.length >= 3){
       let correct_ans = shuffled_all[index][1] + shuffled_all[index][2]
-      ans_list.push(correct_ans)
+      if(ans_list.indexOf(correct_ans) === -1){ans_list.push(correct_ans)}
       ans_list.sort((a, b) => 0.5 - Math.random());
       console.log(ans_list)
       }else{
-      if(ans_list.indexOf(text === -1)){
+      if(ans_list.indexOf(text) === -1){
         ans_list.push(text)
       }
       $: ans_list = ans_list
@@ -56,6 +56,12 @@
     chosen = false;
   },1000)}
 
+  function initial(){
+    correct = 0
+    wrong = 0
+    index = 0
+    ans_list = []
+  }
   window.onload = ()=>{console.log(current_ans)}
 </script>
 
@@ -85,7 +91,9 @@
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
       </svg>
-      <div class="mt-1">back</div>
+      <div class="mt-1"
+      on:mouseup={initial}
+      >back</div>
     </div>
 
     <div class="flex space-x-4">
@@ -100,14 +108,14 @@
   {#if testing}
   <!--question-->
   <div class="flex flex-col items-center space-y-4 text-xl">
-    <div class="border truncate ">{qus}</div>   
+    <div class="border truncate p-2">{qus}</div>   
     <div class="space-y-4">
     {#each ans_list as ans}
-      <div class="truncate  hover:bg-red-100"
+      <div class="truncate p-2 hover:bg-red-100"
       on:mouseup={check}
       class:border={chosen === true }
-      class:border-green-200={chosen === true && checked === true}
-      class:border-red-200={chosen === true && checked === !true}
+      class:border-green-200={chosen === true && this.innerText === current_ans}
+      class:border-red-200={chosen === true && this.innerText !== current_ans}
       >{ans}</div>
     {/each}
     </div>    
