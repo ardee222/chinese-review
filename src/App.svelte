@@ -16,7 +16,8 @@
     on:mouseup={()=>{testing = !testing}}>選擇題</div>
     <div class="border rounded-lg text-center p-2  text-xl hover:bg-green-300 "
     on:mouseup={()=>{choose = !choose}}>配對</div>
-    <div class="border rounded-lg text-center p-2  text-xl hover:bg-green-300 ">名句續寫</div>
+    <div class="border rounded-lg text-center p-2  text-xl hover:bg-green-300 "
+    on:mouseup={()=>{choose = !choose}}>名句續寫</div>
   </div>
   <footer class="absolute right-4 bottom-4">謝卓熹個人財產</footer>
 
