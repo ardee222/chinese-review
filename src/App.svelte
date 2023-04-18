@@ -87,13 +87,11 @@
   <!--function_list-->
   <div class="mt-4 px-8 w-full flex items-center place-content-between ">
     <div class="hover:bg-green-300 hover:rounded-lg p-2 flex items-center text-xs text-white rounded-lg"
-    on:mouseup={()=>{testing = false;choose = false}}>
+    on:mouseup={()=>{testing = false;choose = false;initial()}}>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
         <path stroke-linecap="round" stroke-linejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
       </svg>
-      <div class="mt-1"
-      on:mouseup={initial}
-      >back</div>
+      <div class="mt-1">back</div>
     </div>
 
     <div class="flex space-x-4">
