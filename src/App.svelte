@@ -28,7 +28,7 @@
     let text = a[0]+b[0]
     if(ans_list.length >= 3){
       let correct_ans = shuffled_all[index][1] + shuffled_all[index][2]
-      if(ans_list.indexOf(correct_ans) === -1){ans_list.push(correct_ans)}
+      if(ans_list.indexOf(correct_ans) === -1 ){ans_list.push(correct_ans)}
       ans_list.sort((a, b) => 0.5 - Math.random());
       console.log(ans_list)
       }else{
@@ -111,11 +111,10 @@
     <div class="border truncate p-2">{qus}</div>   
     <div class="space-y-4">
     {#each ans_list as ans}
-      <div class="truncate p-2 hover:bg-red-100"
+      <div class="truncate p-2"
       on:mouseup={check}
-      class:border={chosen === true }
-      class:border-green-200={chosen === true && this.innerText === current_ans}
-      class:border-red-200={chosen === true && this.innerText !== current_ans}
+      class:bg-green-200={chosen === true && this.innerText === current_ans}
+      class:bg-red-200={chosen === true && this.innerText !== current_ans}
       >{ans}</div>
     {/each}
     </div>    
