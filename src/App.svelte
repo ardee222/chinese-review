@@ -27,13 +27,13 @@
     let b = title.sort((a, b) => 0.5 - Math.random());
     let text = a[0]+b[0]
     if(ans_list.length >= 3){
-      let correct_ans = shuffled_all[index][1] + shuffled_all[index][2]
+      let correct_ans = {text:shuffled_all[index][1] + shuffled_all[index][2],correct:true}
       if(ans_list.indexOf(correct_ans) === -1 ){ans_list.push(correct_ans)}
       ans_list.sort((a, b) => 0.5 - Math.random());
       console.log(ans_list)
       }else{
       if(ans_list.indexOf(text) === -1){
-        ans_list.push(text)
+        ans_list.push({text:text,correct:false})
       }
       $: ans_list = ans_list
       creat_list()
@@ -108,14 +108,14 @@
   {#if testing}
   <!--question-->
   <div class="flex flex-col items-center space-y-4 text-xl">
-    <div class="border truncate p-2">{qus}</div>   
+    <div class="border rounded-lg truncate p-2">{qus}</div>   
     <div class="space-y-4">
     {#each ans_list as ans}
       <div class="truncate p-2"
       on:mouseup={check}
-      class:bg-green-200={chosen === true && this.innerText === current_ans}
-      class:bg-red-200={chosen === true && this.innerText !== current_ans}
-      >{ans}</div>
+      class:bg-green-200={chosen === true && ans.correct}
+      class:bg-red-200={chosen === true && !ans.correct}
+      >{ans.text}</div>
     {/each}
     </div>    
   </div>
