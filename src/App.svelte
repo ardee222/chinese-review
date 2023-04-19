@@ -47,6 +47,7 @@
 
   function check(){
     if(index >= 49){
+      initial()
       back()
       alert('done');
     }
