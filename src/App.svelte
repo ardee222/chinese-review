@@ -81,7 +81,7 @@
   {#if !testing && !choose}
   <div class="my-10 text-xl">第三段第二次中文測驗温習</div>
   <div class="text-xs border border-b-0 border-x-0 max-w-sm w-screen my-2">
-    有bug請見願
+    有bug請見願，認真上英文堂
   </div>
   <div class="flex flex-col justify-center space-y-8 mt-10">
     <div class="border rounded-lg text-center p-2  text-xl hover:bg-green-300 "
