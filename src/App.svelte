@@ -2,7 +2,7 @@
   import data from "./data.json"
   let testing = false;
   let choose = false;
-  let chosen,qus,all,author,title,checked,current_ans,index,correct,worng
+  let chosen,qus,all,author,title,checked,current_ans,index,correct,worng,timer
   all = data.all
   author = data.author
   title = data.title
@@ -16,12 +16,17 @@
 
   $:chosen = false;
   $:checked = false;
-
+  $:time = 0;
+  
   for(let i of shuffled_all){
     correct_ans.push(i[1]+i[2])
   }
   $:current_ans = correct_ans[index]
   
+  let timer = setInterval(()=>{
+    time += 1
+    console.log(time)
+},1000)
   function creat_list(){
     let a = author.sort((a, b) => 0.5 - Math.random());
     let b = title.sort((a, b) => 0.5 - Math.random());
