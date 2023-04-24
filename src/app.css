@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@900&family=Noto+Sans+TC:wght@500&family=Secular+One&display=swap');
+*{
+  box-sizing: border-box;
+  font-weight: bold;
+  font-family: 'Secular One', sans-serif,'標楷體';
+}
