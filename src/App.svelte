@@ -23,10 +23,6 @@
   }
   $:current_ans = correct_ans[index]
   
-  let timer = setInterval(()=>{
-    time += 1
-    console.log(time)
-},1000)
   function creat_list(){
     let a = author.sort((a, b) => 0.5 - Math.random());
     let b = title.sort((a, b) => 0.5 - Math.random());
@@ -120,10 +116,11 @@
   <div class="border border-x-0 border-b-0 border-t-2 m-2  border-dashed max-w-sm w-screen h-10 p-2 "></div>
   {/if}
   {#if testing}
+
   <!--question-->
-  <div class="flex flex-col items-center space-y-4 text-xl">
-    <div class="border rounded-lg truncate p-2">{qus}</div>   
-    <div class="space-y-4">
+  <div class="flex flex-col items-center space-y-8 text-xl">
+    <div class="border rounded-lg truncate p-2 text-center max-w-sm w-screen">{qus}</div>   
+    <div class="space-y-6 max-w-sm w-screen px-4">
     {#each ans_list as ans}
       <div class="truncate p-2"
       on:mouseup={check}
@@ -135,7 +132,7 @@
   </div>
   {/if}
 
-  <!--配對-->
+  <!--choosing-->
   {#if choose}
     <div class="m-auto">
       未整
